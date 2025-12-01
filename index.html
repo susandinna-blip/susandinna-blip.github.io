@@ -39,16 +39,16 @@ body{
 .flow{
   position:absolute;
   inset:0;
-  overflow:hidden;
   pointer-events:none;
+  overflow:hidden;
 }
 .flow::before{
   content:"";
   position:absolute;
   width:140%;
-  height:220px;
+  height:240px;
   left:-20%;
-  top:-80px;
+  top:-90px;
   background:radial-gradient(
      ellipse at center,
      rgba(196,90,120,0.12) 0%,
@@ -188,7 +188,7 @@ footer{
   text-align:center;
   font-size:.8rem;
   color:#987681;
-  margin-top:24px;
+  margin:24px 0 10px;
 }
 
 @media(min-width:720px){
@@ -204,6 +204,7 @@ footer{
   <!-- FLOW BAGGRUND -->
   <div class="flow"></div>
 
+  <!-- PROFILBILLEDE -->
   <img src="IMG_7284.jpeg" alt="Susan Dinna" class="hero-image">
 
   <div class="hero-name">Susan Dinna</div>
@@ -243,10 +244,10 @@ Alt det har skærpet mit øje for nuancer og min evne til at omsætte livserfari
 <h3>Storytelling til mennesker og virksomheder</h3>
 
 <ul>
-<li>Hjemmesidetekster og nyhedsbreve</li>
-<li>Storytelling til sociale medier</li>
-<li>Portrætter og præsentationstekster</li>
-<li>Personlige og nænsomme fortællinger</li>
+  <li>Hjemmesidetekster og nyhedsbreve</li>
+  <li>Storytelling til sociale medier</li>
+  <li>Portrætter og præsentationstekster</li>
+  <li>Personlige og nænsomme fortællinger</li>
 </ul>
 
 <p>
@@ -275,7 +276,7 @@ Sammen finder vi den tone, der føles ægte – og som rammer dem, du vil nå.
 </div>
 
 <script>
-document.getElementById("year").textContent=new Date().getFullYear();
+document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 
 </body>
