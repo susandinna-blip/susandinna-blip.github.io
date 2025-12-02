@@ -1,345 +1,273 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8" />
-  <title>Susan Dinna – Kreativ Storyteller</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Susan Dinna – Storytelling</title>
 
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
-        Arial, sans-serif;
-      background: linear-gradient(to bottom, #ffe6f0 0%, #fff9fb 40%, #ffffff 100%);
-      color: #40252f;
-      display: flex;
-      justify-content: center;
-    }
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(180deg,#fde9ef,#ffffff);
+  color:#40252f;
+}
 
-    .page {
-      width: 100%;
-      max-width: 700px;
-      padding: 32px 20px 60px;
-    }
+/* ---------- HERO ---------- */
 
-    /* HERO / TOPKORT */
+.hero {
+  text-align:center;
+  padding:40px 18px 35px;
+}
 
-    .hero-card {
-      background: #ffe9f3;
-      border-radius: 28px;
-      padding: 40px 24px 32px;
-      text-align: center;
-      box-shadow: 0 26px 60px rgba(179, 90, 124, 0.55); /* mørkere rosa skygge */
-      position: relative;
-      overflow: hidden;
-    }
+.hero img {
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 14px 32px rgba(170,65,110,0.35);
+}
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle at top, #ffd1e6, transparent 70%);
-      top: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: 0.8;
-    }
+.hero h1{
+  margin:20px 0 6px;
+  letter-spacing:4px;
+  font-size:26px;
+}
 
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-    }
+.hero p.sub{
+  margin:0;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:12px;
+  color:#9b5d74;
+}
 
-    .profile-image {
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 6px solid #ffeef6;
-      box-shadow: 0 18px 40px rgba(179, 90, 124, 0.45); /* mørkere skygge rundt om billedet */
-    }
+/* ---------- CITAT SLIDER ---------- */
 
-    .name {
-      margin: 26px 0 8px;
-      font-size: 26px;
-      letter-spacing: 3px;
-      font-weight: 700;
-    }
+.quote {
+  margin:28px auto 10px;
+  max-width:320px;
+  font-style:italic;
+  font-size:18px;
+  color:#b1557a;
+  line-height:1.6;
+  animation: slideIn 1.3s ease both;
+}
 
-    .subtitle {
-      font-size: 13px;
-      letter-spacing: 2.3px;
-      text-transform: uppercase;
-      color: #8b5d6e;
-    }
+@keyframes slideIn {
+  from {opacity:0; transform:translateX(-40px);}
+  to {opacity:1; transform:translateX(0);}
+}
 
-    /* SLIDE-CITAT */
+/* ---------- BUTTONS ---------- */
 
-    .quote {
-      margin-top: 28px;
-      margin-bottom: 26px;
-      font-size: 20px;
-      font-style: italic;
-      color: #b35a7c;
-      line-height: 1.5;
-      max-width: 520px;
-      margin-left: auto;
-      margin-right: auto;
+.btn-row{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  margin-top:22px;
+}
 
-      opacity: 0;
-      transform: translateX(60px);
-      animation:
-        slideIn 1.3s ease-out 0.6s forwards,
-        float 4.2s ease-in-out infinite 2.4s;
-    }
+.btn{
+  border:none;
+  padding:12px 22px;
+  border-radius:999px;
+  font-size:15px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+}
 
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
+.btn-primary{
+  background:#b1557a;
+  color:white;
+  box-shadow:0 12px 28px rgba(177,85,122,.5);
+}
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-4px); }
-      100% { transform: translateY(0); }
-    }
+.btn-light{
+  background:#f6d2df;
+  color:#7a404f;
+}
 
-    /* KNAPPER */
+/* ---------- CARDS ---------- */
 
-    .button-row {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
+.card{
+  background:#fff;
+  margin:18px;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 18px 34px rgba(177,85,122,0.25);
+}
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 140px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      font-size: 15px;
-      letter-spacing: 0.04em;
-      transition: transform 0.15s ease, box-shadow 0.15s ease,
-        background 0.15s ease;
-      box-shadow: 0 14px 32px rgba(179, 90, 124, 0.45);
-    }
+.small-title{
+  text-transform:uppercase;
+  letter-spacing:4px;
+  font-size:12px;
+  color:#b1557a;
+  margin-bottom:8px;
+}
 
-    .btn-primary {
-      background: #c5547c;
-      color: #fff;
-    }
+h2{
+  margin-top:0;
+  letter-spacing:1px;
+}
 
-    .btn-primary span.icon {
-      margin-right: 8px;
-      font-size: 16px;
-    }
+ul{
+  padding-left:18px;
+}
 
-    .btn-secondary {
-      background: #f8b7cd;
-      color: #5a3240;
-    }
+li{
+  margin-bottom:6px;
+}
 
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 42px rgba(179, 90, 124, 0.55);
-    }
+/* ---------- CONTACT FORM ---------- */
 
-    .btn:active {
-      transform: translateY(0);
-      box-shadow: 0 10px 24px rgba(179, 90, 124, 0.4);
-    }
+.contact-label{
+  text-align:center;
+  color:#b1557a;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
 
-    /* SEKTIONER */
+.contact-form{
+  max-width:420px;
+  margin:0 auto;
+}
 
-    section {
-      margin-top: 38px;
-    }
+.field{
+  margin-bottom:10px;
+}
 
-    .card {
-      background: #fff7fb;
-      border-radius: 26px;
-      padding: 26px 22px 24px;
-      box-shadow: 0 22px 52px rgba(179, 90, 124, 0.32);
-    }
+label{
+  display:block;
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#b1557a;
+  margin-bottom:4px;
+}
 
-    .section-label {
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #b35a7c;
-      margin-bottom: 10px;
-    }
+input, textarea{
+  width:100%;
+  padding:10px;
+  border-radius:14px;
+  border:1px solid #efbad2;
+  font-size:14px;
+}
 
-    h2 {
-      margin: 0 0 14px;
-      font-size: 22px;
-      line-height: 1.3;
-    }
+input:focus, textarea:focus{
+  outline:none;
+  border-color:#b1557a;
+  box-shadow:0 0 0 2px rgba(177,85,122,.2);
+}
 
-    p {
-      margin: 0 0 14px;
-      font-size: 16px;
-      line-height: 1.7;
-      color: #4a2c36;
-    }
+.contact-submit{
+  margin-top:6px;
+  width:100%;
+  justify-content:center;
+}
 
-    ul {
-      margin: 10px 0 0 18px;
-      padding: 0;
-      color: #4a2c36;
-    }
+.contact-info{
+  text-align:center;
+  font-size:13px;
+  margin-top:12px;
+  color:#8b5d6e;
+}
 
-    li {
-      margin-bottom: 6px;
-    }
-
-    /* KONTAKT-KORT */
-
-    .contact-card {
-      margin-top: 18px;
-      text-align: center;
-      background: #fff7fb;
-      border-radius: 22px;
-      padding: 20px 18px 18px;
-      box-shadow: 0 20px 50px rgba(179, 90, 124, 0.35);
-    }
-
-    .contact-label {
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #b35a7c;
-      margin-bottom: 6px;
-    }
-
-    .contact-card a {
-      color: #c5547c;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .phone {
-      margin-top: 4px;
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      color: #4a2c36;
-    }
-
-    /* RESPONSIVE */
-
-    @media (min-width: 640px) {
-      .hero-card {
-        padding: 48px 40px 40px;
-      }
-      .quote {
-        font-size: 22px;
-      }
-      .card {
-        padding: 30px 26px 26px;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="page">
 
-    <!-- HERO -->
-    <header class="hero-card">
-      <div class="hero-inner">
-        <!-- Skift filnavn til dit rigtige billede -->
-        <img src="IMG_7284.jpeg" alt="Susan Dinna" class="profile-image" />
+<!-- HERO -->
+<section class="hero">
+  <img src="profil.jpg" alt="Susan Dinna">
+  <h1>SUSAN DINNA</h1>
+  <p class="sub">Kreativ storyteller & freelance tekstforfatter</p>
 
-        <h1 class="name">SUSAN DINNA</h1>
-
-        <div class="subtitle">
-          KREATIV STORYTELLER & FREELANCE TEKSTFORFATTER
-        </div>
-
-        <!-- Citat som slider ind -->
-        <div class="quote">
-          “Jeg tror på, at de historier vi tør dele – er de historier, der forbinder os.”
-        </div>
-
-        <div class="button-row">
-          <a href="#om-mig" class="btn btn-primary">
-            <span class="icon">→</span>
-            Om mig
-          </a>
-          <a href="#jeg-tilbyder" class="btn btn-secondary">
-            ✏ Jeg tilbyder
-          </a>
-        </div>
-      </div>
-    </header>
-
-    <!-- OM MIG -->
-    <section id="om-mig">
-      <div class="card">
-        <div class="section-label">OM MIG</div>
-        <h2>Historier fra det virkelige liv</h2>
-
-        <p>
-          Min vej ind i storytelling er formet af mange møder med mennesker og
-          livssituationer, hvor det har været nødvendigt at lytte bag ordene
-          og forstå det, der ikke altid bliver sagt højt.
-        </p>
-        <p>
-          Jeg har lært at navigere i komplekse menneskelige fortællinger med ro,
-          overblik og empati – og at formidle dem klart, respektfuldt og med blik
-          for det væsentlige.
-        </p>
-        <p>
-          Alt det har skærpet mit øje for nuancer og min evne til at omsætte
-          livserfaring til tekster, der rammer ærligt og præcist.
-        </p>
-      </div>
-    </section>
-
-    <!-- JEG TILBYDER -->
-    <section id="jeg-tilbyder">
-      <div class="card">
-        <div class="section-label">JEG TILBYDER</div>
-        <h2>Storytelling til mennesker og virksomheder</h2>
-
-        <ul>
-          <li>Hjemmesidetekster og nyhedsbreve</li>
-          <li>Storytelling til sociale medier</li>
-          <li>Portrætter og præsentationstekster</li>
-          <li>Personlige og nænsomme fortællinger</li>
-        </ul>
-
-        <p style="margin-top: 14px;">
-          Sammen finder vi den tone, der føles ægte – og som rammer dem, du gerne vil nå.
-        </p>
-      </div>
-
-      <div class="contact-card" id="kontakt">
-        <div class="contact-label">KONTAKT</div>
-        <div>
-          <a href="mailto:susandinna@hotmail.com">susandinna@hotmail.com</a>
-        </div>
-        <div class="phone">28 18 84 30</div>
-      </div>
-    </section>
+  <div class="quote">
+    “Jeg tror på, at de historier vi tør dele – er de historier, der forbinder os.”
   </div>
+
+  <div class="btn-row">
+    <a href="#om" class="btn btn-primary">→ Om mig</a>
+    <a href="#tilbyder" class="btn btn-light">✎ Jeg tilbyder</a>
+  </div>
+</section>
+
+<!-- OM MIG -->
+<section class="card" id="om">
+  <div class="small-title">Om mig</div>
+  <h2>Historier fra det virkelige liv</h2>
+  <p>
+    Min vej ind i storytelling er formet af mange møder med mennesker og livssituationer,
+    hvor det har været nødvendigt at lytte bag ordene og forstå det, der ikke altid bliver sagt højt.
+  </p>
+  <p>
+    Jeg navigerer i komplekse fortællinger med ro, overblik og empati – og formidler dem klart,
+    respektfuldt og med blik for det væsentlige.
+  </p>
+</section>
+
+<!-- TILBYDER -->
+<section class="card" id="tilbyder">
+  <div class="small-title">Jeg tilbyder</div>
+  <h2>Storytelling til mennesker og virksomheder</h2>
+
+  <ul>
+    <li>Hjemmesidetekster og nyhedsbreve</li>
+    <li>Storytelling til sociale medier</li>
+    <li>Portrætter og præsentationstekster</li>
+    <li>Personlige og nænsomme fortællinger</li>
+  </ul>
+
+  <p>
+    Sammen finder vi den tone, der føles ægte – og rammer præcist.
+  </p>
+</section>
+
+<!-- KONTAKT -->
+<section class="card" id="kontakt">
+
+  <div class="contact-label">Kontakt</div>
+
+  <form class="contact-form"
+        action="mailto:susandinna@hotmail.com"
+        method="post"
+        enctype="text/plain">
+
+    <div class="field">
+      <label>Navn</label>
+      <input type="text" name="Navn" required>
+    </div>
+
+    <div class="field">
+      <label>E-mail</label>
+      <input type="email" name="Email" required>
+    </div>
+
+    <div class="field">
+      <label>Besked</label>
+      <textarea name="Besked" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary contact-submit">
+      Send besked
+    </button>
+
+  </form>
+
+  <div class="contact-info">
+    susandinna@hotmail.com<br>
+    28 18 84 30
+  </div>
+
+</section>
+
 </body>
 </html>
