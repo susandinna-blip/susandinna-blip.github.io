@@ -2,282 +2,171 @@
 <html lang="da">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Susan Dinna - Kreativ storytelling</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Susan Dinna – Kreativ Storyteller</title>
 
 <style>
-
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:linear-gradient(180deg,#fde9ef,#ffffff);
-  color:#40252f;
+  background:#ffeef3;
+  color:#5c3a45;
 }
-
-/* HERO */
 
 .hero{
   text-align:center;
-  padding:40px 20px 30px;
+  padding:60px 20px;
 }
 
-.profil-billede{
-  width:160px;
-  height:160px;
-  border-radius:50%;
+.hero img{
+  width:220px;
+  height:220px;
   object-fit:cover;
-  box-shadow:0 14px 32px rgba(170,65,110,0.35);
+  border-radius:50%;
+  box-shadow:0 10px 25px rgba(160,70,110,0.45);
 }
 
-.hero h1{
-  margin:20px 0 6px;
-  letter-spacing:4px;
-  font-size:26px;
+h1{
+  margin:20px 0 5px;
+  letter-spacing:2px;
 }
 
-.sub{
+.subtitle{
   text-transform:uppercase;
-  font-size:12px;
-  letter-spacing:3px;
-  color:#9b5d74;
+  letter-spacing:2px;
+  color:#9c495e;
 }
-
-/* SLIDE CITAT */
 
 .quote{
-  margin:28px auto 6px;
-  max-width:340px;
-  font-size:18px;
+  margin-top:35px;
+  font-size:22px;
   font-style:italic;
-  color:#b1557a;
-  line-height:1.6;
-  animation:slideIn 1.3s ease both;
+  color:#ad5570;
+  opacity:0;
+  transform:translateX(-80px);
+  animation:slideQuote 2s ease forwards;
 }
 
-@keyframes slideIn{
-  from{opacity:0;transform:translateX(-40px);}
-  to{opacity:1;transform:translateX(0);}
+@keyframes slideQuote{
+  to{
+    opacity:1;
+    transform:translateX(0);
+  }
 }
 
-/* KNAPPER */
-
-.btn-row{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin-top:22px;
+.buttons{
+  margin-top:30px;
 }
 
 .btn{
-  border:none;
-  padding:12px 22px;
-  border-radius:999px;
-  font-size:15px;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  gap:6px;
+  display:inline-block;
   text-decoration:none;
+  color:#fff;
+  padding:15px 26px;
+  margin:8px;
+  border-radius:30px;
+  background:#b45573;
+  box-shadow:0 6px 15px rgba(160,70,110,0.4);
 }
 
-.btn-primary{
-  background:#b1557a;
-  color:white;
-  box-shadow:0 12px 28px rgba(177,85,122,.5);
+.btn.light{
+  background:#ebb4c6;
+  color:#5c3a45;
 }
 
-.btn-light{
-  background:#f6d2df;
-  color:#7a404f;
-}
-
-/* CARDS */
-
-.card{
+.section{
   background:#fff;
-  margin:18px;
-  border-radius:22px;
-  padding:22px;
-  box-shadow:0 18px 34px rgba(177,85,122,0.25);
-}
-
-.small-title{
-  text-transform:uppercase;
-  letter-spacing:4px;
-  font-size:12px;
-  color:#b1557a;
-  margin-bottom:8px;
+  margin:30px 20px;
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 10px 20px rgba(160,70,110,0.3);
 }
 
 h2{
   margin-top:0;
-  letter-spacing:1px;
 }
 
 ul{
   padding-left:18px;
 }
 
-li{
-  margin-bottom:6px;
-}
-
-/* KONTAKTFORM */
-
-.contact-label{
+.contact{
   text-align:center;
-  color:#b1557a;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  margin-bottom:12px;
 }
 
-.contact-form{
-  max-width:420px;
-  margin:0 auto;
-}
-
-.field{
-  margin-bottom:10px;
-}
-
-label{
-  display:block;
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#b1557a;
-  margin-bottom:4px;
-}
-
-input,textarea{
-  width:100%;
+input, textarea{
+  width:90%;
   padding:10px;
-  border-radius:14px;
-  border:1px solid #efbad2;
-  font-size:14px;
+  margin:8px 0;
+  border-radius:6px;
+  border:1px solid #ccc;
 }
 
-input:focus,textarea:focus{
-  outline:none;
-  border-color:#b1557a;
-  box-shadow:0 0 0 2px rgba(177,85,122,.2);
+button{
+  background:#b45573;
+  color:white;
+  border:none;
+  padding:12px 35px;
+  border-radius:25px;
+  margin-top:10px;
 }
-
-.contact-submit{
-  margin-top:6px;
-  width:100%;
-  justify-content:center;
-}
-
-.contact-info{
-  text-align:center;
-  font-size:13px;
-  margin-top:12px;
-  color:#8b5d6e;
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="hero">
-
-  <img src="IMG_7284.jpeg" alt="Susan Dinna" class="profil-billede">
-
+<div class="hero">
+  <img src="IMG_7284.jpeg" alt="Susan Dinna">
+  
   <h1>SUSAN DINNA</h1>
-
-  <p class="sub">Kreativ storyteller & freelance tekstforfatter</p>
+  <div class="subtitle">Kreativ Storyteller & Freelance Tekstforfatter</div>
 
   <div class="quote">
     “Jeg tror på, at de historier vi tør dele – er de historier, der forbinder os.”
   </div>
 
-  <div class="btn-row">
-    <a href="#om" class="btn btn-primary">→ Om mig</a>
-    <a href="#tilbyder" class="btn btn-light">✎ Jeg tilbyder</a>
+  <div class="buttons">
+    <a href="#om" class="btn">Om mig</a>
+    <a href="#tilbyder" class="btn light">Jeg tilbyder</a>
+    <a href="galleri.html" class="btn">Galleri</a>
   </div>
+</div>
 
-</section>
-
-<!-- OM MIG -->
-<section class="card" id="om">
-
-  <div class="small-title">Om mig</div>
-
+<div class="section" id="om">
   <h2>Historier fra det virkelige liv</h2>
-
   <p>
-    Min vej ind i storytelling er formet af mange møder med mennesker og livssituationer,
-    hvor det har været nødvendigt at lytte bag ordene og forstå det, der ikke altid bliver sagt højt.
+    Min vej ind i storytelling er formet af møder med mennesker og livssituationer,
+    hvor det har været nødvendigt at lytte bag ordene.
   </p>
-
   <p>
-    Jeg navigerer i komplekse fortællinger med ro, overblik og empati – og formidler dem klart,
-    respektfuldt og med blik for det væsentlige.
+    Jeg formidler fortællinger med ro, empati og blik for det væsentlige – 
+    og omsætter livserfaring til tekster, der føles sande og nærværende.
   </p>
+</div>
 
-</section>
-
-<!-- TILBYDER -->
-<section class="card" id="tilbyder">
-
-  <div class="small-title">Jeg tilbyder</div>
-
+<div class="section" id="tilbyder">
   <h2>Storytelling til mennesker og virksomheder</h2>
-
   <ul>
     <li>Hjemmesidetekster og nyhedsbreve</li>
     <li>Storytelling til sociale medier</li>
     <li>Portrætter og præsentationstekster</li>
     <li>Personlige og nænsomme fortællinger</li>
   </ul>
+</div>
 
-  <p>
-    Sammen finder vi den tone, der føles ægte – og rammer præcist.
-  </p>
+<div class="section contact">
+  <h2>Kontakt</h2>
 
-</section>
+  <p><strong>Email:</strong> susandinna@hotmail.com</p>
+  <p><strong>Tlf:</strong> 28 18 84 30</p>
 
-<!-- KONTAKT -->
-<section class="card" id="kontakt">
-
-  <div class="contact-label">Kontakt</div>
-
-  <form class="contact-form"
-        action="mailto:susandinna@hotmail.com"
-        method="post"
-        enctype="text/plain">
-
-    <div class="field">
-      <label>Navn</label>
-      <input type="text" name="Navn" required>
-    </div>
-
-    <div class="field">
-      <label>E-mail</label>
-      <input type="email" name="Email" required>
-    </div>
-
-    <div class="field">
-      <label>Besked</label>
-      <textarea name="Besked" rows="4" required></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary contact-submit">
-      Send besked
-    </button>
-
+  <form>
+    <input type="text" placeholder="Dit navn" required><br>
+    <input type="email" placeholder="Din email" required><br>
+    <textarea rows="4" placeholder="Din besked"></textarea><br>
+    <button type="submit">Send besked</button>
   </form>
-
-  <div class="contact-info">
-    susandinna@hotmail.com<br>
-    28 18 84 30
-  </div>
-
-</section>
+</div>
 
 </body>
 </html>
