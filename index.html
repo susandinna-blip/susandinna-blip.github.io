@@ -2,245 +2,342 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
-  <title>Susan Dinna – Kreativ storyteller</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Susan Dinna – kreativ storyteller og freelance tekstforfatter." />
+  <title>Susan Dinna – Kreativ Storyteller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Susan Dinna – kreativ storyteller og freelance tekstforfatter. Storytelling til mennesker og virksomheder."
+  />
 
   <style>
-    /* Grundlayout */
-    body {
+    :root {
+      --bg: #ffe9f0;
+      --bg-soft: #ffe0ec;
+      --card: #ffffff;
+      --text: #3e222b;
+      --muted: #9a5a70;
+      --accent: #e35585;
+      --accent-soft: #f8b2c9;
+      --shadow-soft: 0 18px 45px rgba(156, 51, 89, 0.2);
+      --radius-lg: 24px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #fff1f6 0%, #ffe4ee 100%);
-      color: #402428;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #ffd6e5 0, #ffeef4 45%, #ffe9f0 100%);
+      color: var(--text);
+      margin: 0;
       padding: 24px;
+      line-height: 1.7;
     }
 
     .page {
-      max-width: 700px;
-      margin: 0 auto;
+      max-width: 800px;
+      margin: 0 auto 48px;
+    }
+
+    /* HERO / TOP */
+    .hero {
       text-align: center;
+      margin-bottom: 40px;
+      position: relative;
     }
 
-    /* Portræt */
-    .profile-img {
-      width: 180px;
-      height: 180px;
-      object-fit: cover;
+    .hero-photo-wrap {
+      width: 220px;
+      height: 220px;
       border-radius: 50%;
-      border: 6px solid #fff;
-      box-shadow: 0 10px 25px rgba(194, 84, 122, 0.35);
-      margin-top: 20px;
-      margin-bottom: 12px;
-    }
-
-    /* Hero-tekst */
-    h1 {
-      margin: 8px 0 6px;
-      font-size: 2rem;
-      letter-spacing: 2px;
-    }
-
-    .subtitle {
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      opacity: 0.75;
-      margin-bottom: 18px;
-    }
-
-    .quote {
-      font-size: 1.15rem;
-      font-style: italic;
-      color: #b04b69;
-      margin: 18px auto 26px;
-      max-width: 520px;
-    }
-
-    /* Knapper */
-    .buttons {
+      margin: 0 auto 24px;
+      padding: 10px;
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #ffe0ec 60%, #ffc0d9 100%);
+      box-shadow: 0 18px 55px rgba(156, 51, 89, 0.35);
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-
-    .btn {
-      padding: 12px 26px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: 0 6px 15px rgba(194, 84, 122, 0.35);
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
     }
 
-    .btn-primary {
-      background: #c2547a;
-      color: #fff;
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
     }
 
-    .btn-secondary {
-      background: #ffd6e1;
-      color: #7a3650;
-      box-shadow: 0 6px 15px rgba(194, 84, 122, 0.2);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: #7a3650;
-      border: 1px solid rgba(176, 75, 105, 0.35);
-      box-shadow: 0 4px 10px rgba(194, 84, 122, 0.15);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(194, 84, 122, 0.35);
-    }
-
-    /* Cards / sektioner */
-    .card {
-      background: #fff;
-      padding: 28px;
-      border-radius: 20px;
-      margin: 18px 0;
-      box-shadow: 0 10px 24px rgba(194, 84, 122, 0.15);
-      text-align: left;
-    }
-
-    h2 {
-      color: #b04b69;
-      letter-spacing: 2px;
-      font-size: 0.9rem;
+    .hero-name {
+      font-size: 2.1rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      margin-top: 0;
+      font-weight: 800;
       margin-bottom: 10px;
     }
 
-    .card p {
-      margin: 10px 0;
-      line-height: 1.6;
+    .hero-subtitle {
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 26px;
     }
 
-    ul {
+    .hero-quote {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--accent);
+      max-width: 32rem;
+      margin: 0 auto 32px;
+    }
+
+    .hero-quote span {
+      display: block;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 26px;
+      border-radius: var(--radius-pill);
+      border: none;
+      font-size: 0.98rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background-color 0.15s ease, color 0.15s ease;
+      box-shadow: 0 14px 30px rgba(142, 38, 77, 0.22);
+      white-space: nowrap;
+    }
+
+    .button-primary {
+      background: linear-gradient(135deg, #e35585, #c93266);
+      color: #fff;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(142, 38, 77, 0.35);
+    }
+
+    .button-soft {
+      background: #ffe0ec;
+      color: var(--muted);
+      box-shadow: 0 10px 25px rgba(156, 51, 89, 0.16);
+    }
+
+    .button-soft:hover {
+      background: #ffd0e2;
+      transform: translateY(-1px);
+    }
+
+    .button-icon {
+      margin-right: 8px;
+    }
+
+    /* SEKTIONER */
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 22px 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.82rem;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+
+    .section p + p {
+      margin-top: 10px;
+    }
+
+    .list {
+      list-style: none;
+      margin: 10px 0 0;
+      padding-left: 0;
+    }
+
+    .list li {
+      position: relative;
       padding-left: 18px;
-      margin: 8px 0;
+      margin-bottom: 6px;
     }
 
-    li {
-      margin: 6px 0;
+    .list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
     }
 
-    .contact-line {
-      margin: 8px 0;
+    /* KONTAKT */
+    .contact-details {
+      margin-top: 8px;
     }
 
-    .contact-line a {
-      color: #b04b69;
+    .contact-item {
+      margin-bottom: 6px;
+    }
+
+    .contact-label {
+      font-weight: 600;
+    }
+
+    .contact-link {
+      color: var(--accent);
       text-decoration: none;
     }
 
-    .contact-line a:hover {
+    .contact-link:hover {
       text-decoration: underline;
     }
 
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      opacity: 0.6;
-      text-align: center;
-    }
-
-    @media (max-width: 480px) {
+    /* RESPONSIV */
+    @media (min-width: 720px) {
       body {
-        padding: 18px;
+        padding: 40px 32px 64px;
       }
+
       .card {
-        padding: 22px 18px;
+        padding: 26px 28px;
+      }
+
+      .hero-quote {
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
-
 <body>
   <div class="page">
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-photo-wrap">
+        <!-- VIGTIGT: filnavn skal matche præcis -->
+        <img src="IMG_7284.jpeg" alt="Susan Dinna" class="hero-photo" />
+      </div>
 
-    <!-- BILLEDE -->
-    <img src="IMG_7284.jpeg" alt="Portræt af Susan Dinna" class="profile-img" />
+      <h1 class="hero-name">SUSAN DINNA</h1>
 
-    <!-- NAVN + UNDERTEKST -->
-    <h1>SUSAN DINNA</h1>
-    <div class="subtitle">
-      KREATIV STORYTELLER &amp; FREELANCE TEKSTFORFATTER
-    </div>
+      <div class="hero-subtitle">
+        KREATIV STORYTELLER &amp; FREELANCE TEKSTFORFATTER
+      </div>
 
-    <!-- CITAT -->
-    <div class="quote">
-      “Jeg tror på, at de historier vi tør dele – er de historier, der forbinder os.”
-    </div>
+      <p class="hero-quote">
+        <span>“Jeg tror på, at de historier vi tør dele</span>
+        <span>– er de historier, der forbinder os.”</span>
+      </p>
 
-    <!-- KNAPPER -->
-    <div class="buttons">
-      <a href="#om-mig" class="btn btn-primary">→ Om mig</a>
-      <a href="#tilbyder" class="btn btn-secondary">✎ Jeg tilbyder</a>
-      <a href="galleri.html" class="btn btn-ghost">▸ Galleri</a>
-    </div>
+      <div class="hero-actions">
+        <a href="#om-mig" class="button button-primary">
+          <span class="button-icon">↠</span> Om mig
+        </a>
+        <a href="#jeg-tilbyder" class="button button-soft">
+          <span class="button-icon">📎</span> Jeg tilbyder
+        </a>
+        <a href="galleri.html" class="button button-soft">
+          <span class="button-icon">🖼️</span> Galleri
+        </a>
+      </div>
+    </header>
 
     <!-- OM MIG -->
-    <section id="om-mig" class="card">
-      <h2>Om mig</h2>
-      <p>
-        Min vej ind i storytelling er formet af mange møder med mennesker og livssituationer, hvor det har været
-        nødvendigt at lytte bag ordene og forstå det, der ikke altid bliver sagt højt.
-      </p>
-      <p>
-        Jeg har lært at navigere i komplekse menneskelige fortællinger med ro, overblik og empati – og at formidle dem
-        klart, respektfuldt og med blik for det væsentlige.
-      </p>
-      <p>
-        Alt det har skærpet mit øje for nuancer og min evne til at omsætte livserfaring til tekster, der rammer ærligt
-        og præcist.
-      </p>
+    <section id="om-mig" class="section">
+      <div class="card">
+        <div class="section-label">Om mig</div>
+        <h2 class="section-title">Historier fra det virkelige liv</h2>
+        <p>
+          Min vej ind i storytelling er formet af mange møder med mennesker og
+          livssituationer, hvor det har været nødvendigt at lytte bag ordene og
+          forstå det, der ikke altid bliver sagt højt.
+        </p>
+        <p>
+          Jeg har lært at navigere i komplekse menneskelige fortællinger med ro,
+          overblik og empati – og at formidle dem klart, respektfuldt og med
+          blik for det væsentlige.
+        </p>
+        <p>
+          Alt det har skærpet mit øje for nuancer og min evne til at omsætte
+          livserfaring til tekster, der rammer ærligt og præcist.
+        </p>
+      </div>
     </section>
 
     <!-- JEG TILBYDER -->
-    <section id="tilbyder" class="card">
-      <h2>Jeg tilbyder</h2>
-      <p>Storytelling til mennesker og virksomheder – blandt andet:</p>
-      <ul>
-        <li>Hjemmesidetekster og nyhedsbreve</li>
-        <li>Storytelling til sociale medier</li>
-        <li>Portrætter og præsentationstekster</li>
-        <li>Personlige og nænsomme fortællinger</li>
-      </ul>
-      <p>
-        Sammen finder vi den tone, der føles ægte – og den fortælling, der skaber forbindelse.
-      </p>
+    <section id="jeg-tilbyder" class="section">
+      <div class="card">
+        <div class="section-label">Jeg tilbyder</div>
+        <h2 class="section-title">Storytelling til mennesker og virksomheder</h2>
+        <ul class="list">
+          <li>Hjemmesidetekster og nyhedsbreve</li>
+          <li>Storytelling til sociale medier</li>
+          <li>Portrætter og præsentationstekster</li>
+          <li>Personlige og nænsomme fortællinger</li>
+        </ul>
+        <p style="margin-top: 14px;">
+          Sammen finder vi den tone, der føles ægte – og den fortælling, der
+          skaber forbindelse.
+        </p>
+      </div>
     </section>
 
     <!-- KONTAKT -->
-    <section id="kontakt" class="card">
-      <h2>Kontakt</h2>
-      <p class="contact-line">
-        ✉️
-        <a href="mailto:susandinna@hotmail.com">susandinna@hotmail.com</a>
-      </p>
-      <p class="contact-line">
-        ☎️
-        <a href="tel:+4528188430">28 18 84 30</a>
-      </p>
-    </section>
+    <section id="kontakt" class="section">
+      <div class="card">
+        <div class="section-label">Kontakt</div>
+        <h2 class="section-title">Lad os tale om din fortælling</h2>
+        <p>
+          Har du brug for hjælp til ord, der rammer rigtigt – eller vil du høre
+          mere om, hvordan vi kan samarbejde?
+        </p>
 
-    <footer>
-      © Susan Dinna – Storytelling &amp; tekst
-    </footer>
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-label">Mail:</span>
+            <a class="contact-link" href="mailto:susandinna@hotmail.com">
+              susandinna@hotmail.com
+            </a>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Telefon:</span>
+            <a class="contact-link" href="tel:+4528188430">
+              28&nbsp;18&nbsp;84&nbsp;30
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </body>
 </html>
