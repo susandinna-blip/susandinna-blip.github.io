@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Galleri</title>
+
+<style>
+body{
+  margin:0;
+  background:#ffeef3;
+  font-family:Arial, sans-serif;
+  color:#5c3a45;
+  text-align:center;
+}
+
+h1{
+  margin:20px 0;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  padding:20px;
+}
+
+.grid img{
+  width:100%;
+  border-radius:15px;
+  box-shadow:0 6px 15px rgba(160,70,110,0.4);
+}
+
+.back{
+  display:inline-block;
+  margin:20px;
+  padding:12px 26px;
+  background:#b45573;
+  color:white;
+  text-decoration:none;
+  border-radius:25px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Galleri</h1>
+
+<div class="grid">
+  <img src="IMG_7284.jpeg" alt="Susan Dinna">
+</div>
+
+<a href="index.html" class="back">← Tilbage til forsiden</a>
+
+</body>
+</html>
