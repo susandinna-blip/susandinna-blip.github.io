@@ -1,283 +1,345 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8">
-<title>Susan Dinna – Kreativ storyteller</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Susan Dinna – Kreativ Storyteller</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<style>
-:root{
-  --bg-top:#fff1f6;
-  --bg-bottom:#ffffff;
-  --accent:#c45a78;
-  --accent-soft:#f7d3e0;
-  --text:#3f2830;
-  --shadow:0 18px 28px rgba(0,0,0,.08);
-  --radius:18px;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body{
-  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
-  background:linear-gradient(180deg,var(--bg-top),var(--bg-bottom));
-  color:var(--text);
-  line-height:1.85;
-  padding:16px;
-}
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+        Arial, sans-serif;
+      background: linear-gradient(to bottom, #ffe6f0 0%, #fff9fb 40%, #ffffff 100%);
+      color: #40252f;
+      display: flex;
+      justify-content: center;
+    }
 
-.page{
-  max-width:860px;
-  margin:auto;
-}
+    .page {
+      width: 100%;
+      max-width: 700px;
+      padding: 32px 20px 60px;
+    }
 
-/* FLOW BØLGE */
-.flow{
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
-}
-.flow::before{
-  content:"";
-  position:absolute;
-  width:140%;
-  height:240px;
-  left:-20%;
-  top:-90px;
-  background:radial-gradient(
-     ellipse at center,
-     rgba(196,90,120,0.12) 0%,
-     rgba(196,90,120,0.06) 40%,
-     transparent 70%);
-  border-radius:50%;
-}
+    /* HERO / TOPKORT */
 
-/* HERO */
-.hero{
-  position:relative;
-  text-align:center;
-  padding:52px 16px 64px;
-}
+    .hero-card {
+      background: #ffe9f3;
+      border-radius: 28px;
+      padding: 40px 24px 32px;
+      text-align: center;
+      box-shadow: 0 26px 60px rgba(179, 90, 124, 0.55); /* mørkere rosa skygge */
+      position: relative;
+      overflow: hidden;
+    }
 
-.hero-image{
-  width:220px;
-  height:220px;
-  border-radius:50%;
-  object-fit:cover;
-  margin:0 auto 28px;
-  box-shadow:var(--shadow);
-}
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle at top, #ffd1e6, transparent 70%);
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.8;
+    }
 
-.hero-name{
-  font-size:1.45rem;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-  margin-bottom:10px;
-}
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
 
-.hero-tagline{
-  font-size:.95rem;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:#906674;
-  margin-bottom:32px;
-}
+    .profile-image {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #ffeef6;
+      box-shadow: 0 18px 40px rgba(179, 90, 124, 0.45); /* mørkere skygge rundt om billedet */
+    }
 
-.hero-quote{
-  max-width:540px;
-  margin:0 auto 36px;
-  font-size:1.5rem;
-  color:var(--accent);
-  font-style:italic;
-}
+    .name {
+      margin: 26px 0 8px;
+      font-size: 26px;
+      letter-spacing: 3px;
+      font-weight: 700;
+    }
 
-.hero-actions{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  flex-wrap:wrap;
-}
+    .subtitle {
+      font-size: 13px;
+      letter-spacing: 2.3px;
+      text-transform: uppercase;
+      color: #8b5d6e;
+    }
 
-.btn{
-  border-radius:99px;
-  padding:12px 26px;
-  font-size:.95rem;
-  text-decoration:none;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  transition:.15s ease;
-}
+    /* SLIDE-CITAT */
 
-.btn-primary{
-  background:var(--accent);
-  color:#fff;
-  box-shadow:0 10px 18px rgba(196,90,120,.35);
-}
+    .quote {
+      margin-top: 28px;
+      margin-bottom: 26px;
+      font-size: 20px;
+      font-style: italic;
+      color: #b35a7c;
+      line-height: 1.5;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
 
-.btn-primary:hover{
-  transform:translateY(-2px);
-}
+      opacity: 0;
+      transform: translateX(60px);
+      animation:
+        slideIn 1.3s ease-out 0.6s forwards,
+        float 4.2s ease-in-out infinite 2.4s;
+    }
 
-.btn-secondary{
-  background:var(--accent-soft);
-  color:var(--text);
-}
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
-/* SECTIONS */
-.section{
-  background:#fff;
-  border-radius:var(--radius);
-  padding:30px 24px;
-  margin:16px 0 28px;
-  box-shadow:var(--shadow);
-}
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+      100% { transform: translateY(0); }
+    }
 
-.section h2{
-  letter-spacing:.25em;
-  text-transform:uppercase;
-  font-size:.95rem;
-  color:#926671;
-  margin-bottom:16px;
-}
+    /* KNAPPER */
 
-.section h3{
-  font-size:1.35rem;
-  margin-bottom:14px;
-}
+    .button-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-.section p{
-  font-size:1.03rem;
-  margin-bottom:16px;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease;
+      box-shadow: 0 14px 32px rgba(179, 90, 124, 0.45);
+    }
 
-.section ul{
-  list-style:none;
-}
+    .btn-primary {
+      background: #c5547c;
+      color: #fff;
+    }
 
-.section li{
-  margin-bottom:10px;
-}
+    .btn-primary span.icon {
+      margin-right: 8px;
+      font-size: 16px;
+    }
 
-.section li::before{
-  content:"•";
-  color:var(--accent);
-  margin-right:8px;
-}
+    .btn-secondary {
+      background: #f8b7cd;
+      color: #5a3240;
+    }
 
-/* KONTAKT */
-.contact{
-  text-align:center;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 42px rgba(179, 90, 124, 0.55);
+    }
 
-.contact a{
-  color:var(--accent);
-  text-decoration:none;
-}
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 10px 24px rgba(179, 90, 124, 0.4);
+    }
 
-.contact a:hover{
-  text-decoration:underline;
-}
+    /* SEKTIONER */
 
-footer{
-  text-align:center;
-  font-size:.8rem;
-  color:#987681;
-  margin:24px 0 10px;
-}
+    section {
+      margin-top: 38px;
+    }
 
-@media(min-width:720px){
-  .hero-quote{font-size:1.65rem;}
-}
-</style>
+    .card {
+      background: #fff7fb;
+      border-radius: 26px;
+      padding: 26px 22px 24px;
+      box-shadow: 0 22px 52px rgba(179, 90, 124, 0.32);
+    }
+
+    .section-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #b35a7c;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.3;
+    }
+
+    p {
+      margin: 0 0 14px;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #4a2c36;
+    }
+
+    ul {
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: #4a2c36;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* KONTAKT-KORT */
+
+    .contact-card {
+      margin-top: 18px;
+      text-align: center;
+      background: #fff7fb;
+      border-radius: 22px;
+      padding: 20px 18px 18px;
+      box-shadow: 0 20px 50px rgba(179, 90, 124, 0.35);
+    }
+
+    .contact-label {
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #b35a7c;
+      margin-bottom: 6px;
+    }
+
+    .contact-card a {
+      color: #c5547c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .phone {
+      margin-top: 4px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: #4a2c36;
+    }
+
+    /* RESPONSIVE */
+
+    @media (min-width: 640px) {
+      .hero-card {
+        padding: 48px 40px 40px;
+      }
+      .quote {
+        font-size: 22px;
+      }
+      .card {
+        padding: 30px 26px 26px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="page">
+  <div class="page">
 
-<header class="hero">
-  <!-- FLOW BAGGRUND -->
-  <div class="flow"></div>
+    <!-- HERO -->
+    <header class="hero-card">
+      <div class="hero-inner">
+        <!-- Skift filnavn til dit rigtige billede -->
+        <img src="IMG_7284.jpeg" alt="Susan Dinna" class="profile-image" />
 
-  <!-- PROFILBILLEDE -->
-  <img src="IMG_7284.jpeg" alt="Susan Dinna" class="hero-image">
+        <h1 class="name">SUSAN DINNA</h1>
 
-  <div class="hero-name">Susan Dinna</div>
-  <div class="hero-tagline">Kreativ storyteller & freelance tekstforfatter</div>
+        <div class="subtitle">
+          KREATIV STORYTELLER & FREELANCE TEKSTFORFATTER
+        </div>
 
-  <p class="hero-quote">
-    “Jeg tror på, at de historier vi tør dele – er de historier, der forbinder os.”
-  </p>
+        <!-- Citat som slider ind -->
+        <div class="quote">
+          “Jeg tror på, at de historier vi tør dele – er de historier, der forbinder os.”
+        </div>
 
-  <div class="hero-actions">
-    <a href="#om-mig" class="btn btn-primary">→ Om mig</a>
-    <a href="#jeg-tilbyder" class="btn btn-secondary">✎ Jeg tilbyder</a>
+        <div class="button-row">
+          <a href="#om-mig" class="btn btn-primary">
+            <span class="icon">→</span>
+            Om mig
+          </a>
+          <a href="#jeg-tilbyder" class="btn btn-secondary">
+            ✏ Jeg tilbyder
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- OM MIG -->
+    <section id="om-mig">
+      <div class="card">
+        <div class="section-label">OM MIG</div>
+        <h2>Historier fra det virkelige liv</h2>
+
+        <p>
+          Min vej ind i storytelling er formet af mange møder med mennesker og
+          livssituationer, hvor det har været nødvendigt at lytte bag ordene
+          og forstå det, der ikke altid bliver sagt højt.
+        </p>
+        <p>
+          Jeg har lært at navigere i komplekse menneskelige fortællinger med ro,
+          overblik og empati – og at formidle dem klart, respektfuldt og med blik
+          for det væsentlige.
+        </p>
+        <p>
+          Alt det har skærpet mit øje for nuancer og min evne til at omsætte
+          livserfaring til tekster, der rammer ærligt og præcist.
+        </p>
+      </div>
+    </section>
+
+    <!-- JEG TILBYDER -->
+    <section id="jeg-tilbyder">
+      <div class="card">
+        <div class="section-label">JEG TILBYDER</div>
+        <h2>Storytelling til mennesker og virksomheder</h2>
+
+        <ul>
+          <li>Hjemmesidetekster og nyhedsbreve</li>
+          <li>Storytelling til sociale medier</li>
+          <li>Portrætter og præsentationstekster</li>
+          <li>Personlige og nænsomme fortællinger</li>
+        </ul>
+
+        <p style="margin-top: 14px;">
+          Sammen finder vi den tone, der føles ægte – og som rammer dem, du gerne vil nå.
+        </p>
+      </div>
+
+      <div class="contact-card" id="kontakt">
+        <div class="contact-label">KONTAKT</div>
+        <div>
+          <a href="mailto:susandinna@hotmail.com">susandinna@hotmail.com</a>
+        </div>
+        <div class="phone">28 18 84 30</div>
+      </div>
+    </section>
   </div>
-</header>
-
-<main>
-
-<section id="om-mig" class="section">
-<h2>Om mig</h2>
-<h3>Historier fra det virkelige liv</h3>
-
-<p>
-Min vej ind i storytelling er formet af mange møder med mennesker og livssituationer, hvor det har været nødvendigt at lytte bag ordene og forstå det, der ikke altid bliver sagt højt.
-</p>
-
-<p>
-Jeg har lært at navigere i komplekse menneskelige fortællinger med ro, overblik og empati – og at formidle dem klart, respektfuldt og med blik for det væsentlige.
-</p>
-
-<p>
-Alt det har skærpet mit øje for nuancer og min evne til at omsætte livserfaring til tekster, der rammer ærligt og præcist.
-</p>
-</section>
-
-<section id="jeg-tilbyder" class="section">
-<h2>Jeg tilbyder</h2>
-<h3>Storytelling til mennesker og virksomheder</h3>
-
-<ul>
-  <li>Hjemmesidetekster og nyhedsbreve</li>
-  <li>Storytelling til sociale medier</li>
-  <li>Portrætter og præsentationstekster</li>
-  <li>Personlige og nænsomme fortællinger</li>
-</ul>
-
-<p>
-Sammen finder vi den tone, der føles ægte – 
-</p>
-</section>
-
-<section class="section contact">
-<h2>Kontakt</h2>
-
-<p>
-<a href="mailto:susandinna@hotmail.com">susandinna@hotmail.com</a>
-</p>
-
-<p>
-<a href="tel:+4528188430">28 18 84 30</a>
-</p>
-</section>
-
-</main>
-
-<footer>
-© <span id="year"></span> Susan Dinna – Storytelling & tekst
-</footer>
-
-</div>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
 </body>
 </html>
