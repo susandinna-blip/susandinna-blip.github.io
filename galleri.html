@@ -2,84 +2,64 @@
 <html lang="da">
 <head>
 <meta charset="UTF-8">
-<title>Galleri</title>
+<title>Galleri – Susan Dinna</title>
 
 <style>
 
 body{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:#fdecef;
+    background:#fceef3;
+    font-family: Arial, sans-serif;
     text-align:center;
 }
 
 h1{
-    margin:30px 0 15px;
-    color:#7a2f47;
+    color:#944a6a;
+    margin:30px 0 10px;
 }
 
-/* -------- Slider -------- */
-
+/* SLIDER */
 .slider{
-    max-width:420px;
-    margin:0 auto;
     position:relative;
+    width:90%;
+    max-width:450px;
+    margin:20px auto;
 }
 
-.slide{
-    display:block;
-}
-
+/* SLIDE */
 .slide img{
     width:100%;
-    border-radius:25px;
-    box-shadow:0 10px 25px rgba(122,47,71,0.35);
+    border-radius:18px;
+    box-shadow:0 8px 18px rgba(150,50,90,0.25);
 }
 
-/* -------- Citat -------- */
-
+/* CITAT */
 .quote{
     position:absolute;
-    bottom:15px;
-    left:10%;
-    right:10%;
-    
-    background:rgba(255,190,210,0.9);
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#f4b6cd;
+    color:#5a2341;
     padding:10px 14px;
     border-radius:14px;
-    
-    color:#7a2f47;
     font-size:14px;
-    font-style:italic;
-}
-
-/* -------- Navigation -------- */
-
-.back{
-    display:inline-block;
-    margin-top:20px;
-    text-decoration:none;
-    color:white;
-    background:#b44d6a;
-    padding:12px 22px;
-    border-radius:25px;
-}
-
-.back:hover{
-    background:#943a54;
+    max-width:80%;
+    box-shadow:0 4px 10px rgba(0,0,0,0.12);
 }
 
 </style>
 </head>
+
 <body>
 
 <h1>Galleri</h1>
 
 <div class="slider">
 
-    <!-- MALERI -->
+    <!-- SLIDE -->
     <div class="slide">
-        <img src="01E55467-6AEB-4DA3-B5FD-A7D18378E66C.png" alt="Maleri">
+        <img src="IMG_7343.jpeg" alt="Maleri">
     </div>
 
     <!-- CITAT -->
@@ -88,10 +68,6 @@ h1{
     </div>
 
 </div>
-
-<a href="index.html" class="back">
-    ← Tilbage til forsiden
-</a>
 
 </body>
 </html>
