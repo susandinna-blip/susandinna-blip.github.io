@@ -2,27 +2,26 @@
 <html lang="da">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Susan Dinna – Storytelling</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Susan Dinna - Kreativ storytelling</title>
 
 <style>
 
-body {
-  margin: 0;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(180deg,#fde9ef,#ffffff);
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(180deg,#fde9ef,#ffffff);
   color:#40252f;
 }
 
-/* ---------- HERO ---------- */
+/* HERO */
 
-.hero {
+.hero{
   text-align:center;
-  padding:40px 18px 35px;
+  padding:40px 20px 30px;
 }
 
-.hero img {
+.profil-billede{
   width:160px;
   height:160px;
   border-radius:50%;
@@ -36,32 +35,31 @@ body {
   font-size:26px;
 }
 
-.hero p.sub{
-  margin:0;
-  letter-spacing:3px;
+.sub{
   text-transform:uppercase;
   font-size:12px;
+  letter-spacing:3px;
   color:#9b5d74;
 }
 
-/* ---------- CITAT SLIDER ---------- */
+/* SLIDE CITAT */
 
-.quote {
-  margin:28px auto 10px;
-  max-width:320px;
-  font-style:italic;
+.quote{
+  margin:28px auto 6px;
+  max-width:340px;
   font-size:18px;
+  font-style:italic;
   color:#b1557a;
   line-height:1.6;
-  animation: slideIn 1.3s ease both;
+  animation:slideIn 1.3s ease both;
 }
 
-@keyframes slideIn {
-  from {opacity:0; transform:translateX(-40px);}
-  to {opacity:1; transform:translateX(0);}
+@keyframes slideIn{
+  from{opacity:0;transform:translateX(-40px);}
+  to{opacity:1;transform:translateX(0);}
 }
 
-/* ---------- BUTTONS ---------- */
+/* KNAPPER */
 
 .btn-row{
   display:flex;
@@ -93,7 +91,7 @@ body {
   color:#7a404f;
 }
 
-/* ---------- CARDS ---------- */
+/* CARDS */
 
 .card{
   background:#fff;
@@ -124,7 +122,7 @@ li{
   margin-bottom:6px;
 }
 
-/* ---------- CONTACT FORM ---------- */
+/* KONTAKTFORM */
 
 .contact-label{
   text-align:center;
@@ -152,7 +150,7 @@ label{
   margin-bottom:4px;
 }
 
-input, textarea{
+input,textarea{
   width:100%;
   padding:10px;
   border-radius:14px;
@@ -160,7 +158,7 @@ input, textarea{
   font-size:14px;
 }
 
-input:focus, textarea:focus{
+input:focus,textarea:focus{
   outline:none;
   border-color:#b1557a;
   box-shadow:0 0 0 2px rgba(177,85,122,.2);
@@ -186,8 +184,11 @@ input:focus, textarea:focus{
 
 <!-- HERO -->
 <section class="hero">
-  <img src="profil.jpg" alt="Susan Dinna">
+
+  <img src="IMG_7284.jpeg" alt="Susan Dinna" class="profil-billede">
+
   <h1>SUSAN DINNA</h1>
+
   <p class="sub">Kreativ storyteller & freelance tekstforfatter</p>
 
   <div class="quote">
@@ -198,25 +199,33 @@ input:focus, textarea:focus{
     <a href="#om" class="btn btn-primary">→ Om mig</a>
     <a href="#tilbyder" class="btn btn-light">✎ Jeg tilbyder</a>
   </div>
+
 </section>
 
 <!-- OM MIG -->
 <section class="card" id="om">
+
   <div class="small-title">Om mig</div>
+
   <h2>Historier fra det virkelige liv</h2>
+
   <p>
     Min vej ind i storytelling er formet af mange møder med mennesker og livssituationer,
     hvor det har været nødvendigt at lytte bag ordene og forstå det, der ikke altid bliver sagt højt.
   </p>
+
   <p>
     Jeg navigerer i komplekse fortællinger med ro, overblik og empati – og formidler dem klart,
     respektfuldt og med blik for det væsentlige.
   </p>
+
 </section>
 
 <!-- TILBYDER -->
 <section class="card" id="tilbyder">
+
   <div class="small-title">Jeg tilbyder</div>
+
   <h2>Storytelling til mennesker og virksomheder</h2>
 
   <ul>
@@ -229,6 +238,7 @@ input:focus, textarea:focus{
   <p>
     Sammen finder vi den tone, der føles ægte – og rammer præcist.
   </p>
+
 </section>
 
 <!-- KONTAKT -->
