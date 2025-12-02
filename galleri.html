@@ -18,7 +18,8 @@ h1{
     margin:30px 0 10px;
 }
 
-/* SLIDER */
+/* ===== Slider / billede ===== */
+
 .slider{
     position:relative;
     width:90%;
@@ -26,26 +27,64 @@ h1{
     margin:20px auto;
 }
 
-/* SLIDE */
 .slide img{
     width:100%;
     border-radius:18px;
     box-shadow:0 8px 18px rgba(150,50,90,0.25);
 }
 
-/* CITAT */
+/* ===== Citat på billede ===== */
+
 .quote{
     position:absolute;
-    bottom:18px;
+    bottom:16px;
     left:50%;
     transform:translateX(-50%);
-    background:#f4b6cd;
+    background:rgba(244,182,205,0.9);
     color:#5a2341;
-    padding:10px 14px;
+    padding:10px 16px;
     border-radius:14px;
     font-size:14px;
-    max-width:80%;
+    max-width:82%;
     box-shadow:0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* ===== CTA tekst under billede ===== */
+
+.cta-text{
+    margin-top:22px;
+    text-align:center;
+    color:#7a2f47;
+    font-size:17px;
+    line-height:1.4;
+}
+
+/* Pulse animation */
+
+.pulse{
+    animation: pulseText 3s ease-in-out infinite;
+}
+
+@keyframes pulseText {
+    0%   { transform: scale(0.9); opacity:0.6;}
+    50%  { transform: scale(1.05); opacity:1;}
+    100% { transform: scale(0.9); opacity:0.6;}
+}
+
+/* ===== Tilbage-klik ===== */
+
+.back{
+    display:inline-block;
+    margin:25px auto 30px;
+    text-decoration:none;
+    color:white;
+    background:#b44d6a;
+    padding:12px 24px;
+    border-radius:25px;
+}
+
+.back:hover{
+    background:#943a54;
 }
 
 </style>
@@ -57,7 +96,7 @@ h1{
 
 <div class="slider">
 
-    <!-- SLIDE -->
+    <!-- MALERI -->
     <div class="slide">
         <img src="IMG_7343.jpeg" alt="Maleri">
     </div>
@@ -68,6 +107,17 @@ h1{
     </div>
 
 </div>
+
+<!-- CTA TEKST -->
+<div class="cta-text pulse">
+    <strong>Klar til at finde ordene sammen?</strong><br>
+    Lad os tage en snak.
+</div>
+
+<!-- TILBAGE -->
+<a href="index.html" class="back">
+    ← Tilbage til forsiden
+</a>
 
 </body>
 </html>
