@@ -57,6 +57,18 @@ body{
   border-radius:50%;
 }
 
+/* SLIDE-IN ANIMATION */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* HERO */
 .hero{
   position:relative;
@@ -88,12 +100,14 @@ body{
   margin-bottom:32px;
 }
 
+/* Tekst der “slider ind” */
 .hero-quote{
   max-width:540px;
   margin:0 auto 36px;
   font-size:1.5rem;
   color:var(--accent);
   font-style:italic;
+  animation: slideUpFade .8s ease-out both;
 }
 
 .hero-actions{
@@ -136,7 +150,14 @@ body{
   padding:30px 24px;
   margin:16px 0 28px;
   box-shadow:var(--shadow);
+  animation: slideUpFade .7s ease-out both;
 }
+
+/* lidt forskellig forsinkelse på sektionerne */
+.section:nth-of-type(1){ animation-delay: .1s; }
+.section:nth-of-type(2){ animation-delay: .2s; }
+.section:nth-of-type(3){ animation-delay: .3s; }
+.section:nth-of-type(4){ animation-delay: .4s; }
 
 .section h2{
   letter-spacing:.25em;
@@ -170,18 +191,77 @@ body{
   margin-right:8px;
 }
 
+/* GALLERI GRID */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:12px;
+  margin-top:8px;
+}
+
+.gallery-item{
+  background:linear-gradient(135deg,#fbe3ed,#f7d3e0);
+  border-radius:14px;
+  padding:28px 18px;
+  text-align:center;
+  font-size:.9rem;
+  font-style:italic;
+  opacity:.85;
+}
+
 /* KONTAKT */
 .contact{
   text-align:center;
 }
 
-.contact a{
-  color:var(--accent);
-  text-decoration:none;
+.contact-intro{
+  margin-bottom:18px;
 }
 
-.contact a:hover{
-  text-decoration:underline;
+/* Kontaktformular – uden at vise mail/tlf */
+.contact-form{
+  max-width:420px;
+  margin:0 auto;
+  text-align:left;
+}
+
+.contact-form label{
+  display:block;
+  font-size:.9rem;
+  margin-bottom:4px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:1px solid #e0c5cf;
+  font-family:inherit;
+  font-size:.95rem;
+  margin-bottom:14px;
+}
+
+.contact-form textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.contact-form button{
+  border:none;
+  cursor:pointer;
+  border-radius:99px;
+  padding:11px 24px;
+  font-size:.95rem;
+  font-weight:500;
+  background:var(--accent);
+  color:#fff;
+  box-shadow:0 10px 18px rgba(196,90,120,.35);
+  transition:.15s ease;
+}
+
+.contact-form button:hover{
+  transform:translateY(-1px);
 }
 
 footer{
@@ -217,54 +297,81 @@ footer{
   <div class="hero-actions">
     <a href="#om-mig" class="btn btn-primary">→ Om mig</a>
     <a href="#jeg-tilbyder" class="btn btn-secondary">✎ Jeg tilbyder</a>
+    <a href="#galleri" class="btn btn-secondary">☾ Galleri</a>
   </div>
 </header>
 
 <main>
 
 <section id="om-mig" class="section">
-<h2>Om mig</h2>
-<h3>Historier fra det virkelige liv</h3>
+  <h2>Om mig</h2>
+  <h3>Historier fra det virkelige liv</h3>
 
-<p>
-Min vej ind i storytelling er formet af mange møder med mennesker og livssituationer, hvor det har været nødvendigt at lytte bag ordene og forstå det, der ikke altid bliver sagt højt.
-</p>
+  <p>
+    Min vej ind i storytelling er formet af mange møder med mennesker og livssituationer, hvor det har været nødvendigt at lytte bag ordene og forstå det, der ikke altid bliver sagt højt.
+  </p>
 
-<p>
-Jeg har lært at navigere i komplekse menneskelige fortællinger med ro, overblik og empati – og at formidle dem klart, respektfuldt og med blik for det væsentlige.
-</p>
+  <p>
+    Jeg har lært at navigere i komplekse menneskelige fortællinger med ro, overblik og empati – og at formidle dem klart, respektfuldt og med blik for det væsentlige.
+  </p>
 
-<p>
-Alt det har skærpet mit øje for nuancer og min evne til at omsætte livserfaring til tekster, der rammer ærligt og præcist.
-</p>
+  <p>
+    Alt det har skærpet mit øje for nuancer og min evne til at omsætte livserfaring til tekster, der rammer ærligt og præcist.
+  </p>
 </section>
 
 <section id="jeg-tilbyder" class="section">
-<h2>Jeg tilbyder</h2>
-<h3>Storytelling til mennesker og virksomheder</h3>
+  <h2>Jeg tilbyder</h2>
+  <h3>Storytelling til mennesker og virksomheder</h3>
 
-<ul>
-  <li>Hjemmesidetekster og nyhedsbreve</li>
-  <li>Storytelling til sociale medier</li>
-  <li>Portrætter og præsentationstekster</li>
-  <li>Personlige og nænsomme fortællinger</li>
-</ul>
+  <ul>
+    <li>Hjemmesidetekster og nyhedsbreve</li>
+    <li>Storytelling til sociale medier</li>
+    <li>Portrætter og præsentationstekster</li>
+    <li>Personlige og nænsomme fortællinger</li>
+  </ul>
 
-<p>
-Sammen finder vi den tone, der føles ægte – og som rammer dem, du vil nå.
-</p>
+  <p>
+    Sammen finder vi den tone, der føles ægte – og som rammer dem, du vil nå.
+  </p>
+</section>
+
+<section id="galleri" class="section">
+  <h2>Galleri</h2>
+  <h3>Et kig ind i mine fortællinger</h3>
+
+  <p>
+    Her kan du få en fornemmelse af stemningen i mine projekter – ord, billeder og små øjeblikke, der har sat sig spor.
+  </p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">Uddrag fra personlige fortællinger</div>
+    <div class="gallery-item">Stemningsfulde tekster til sociale medier</div>
+    <div class="gallery-item">Portrætter og præsentationer</div>
+    <div class="gallery-item">Samarbejder og særlige projekter</div>
+  </div>
 </section>
 
 <section class="section contact">
-<h2>Kontakt</h2>
+  <h2>Kontakt</h2>
 
-<p>
-<a href="mailto:susandinna@hotmail.com">susandinna@hotmail.com</a>
-</p>
+  <p class="contact-intro">
+    Har du en historie, der kalder på ord – eller et projekt, du gerne vil vende?
+    Skriv til mig her, så vender jeg tilbage hurtigst muligt.
+  </p>
 
-<p>
-<a href="tel:+4528188430">28 18 84 30</a>
-</p>
+  <form class="contact-form" action="#" method="post">
+    <label for="navn">Navn</label>
+    <input id="navn" name="navn" type="text" required>
+
+    <label for="email">E-mail</label>
+    <input id="email" name="email" type="email" required>
+
+    <label for="besked">Besked</label>
+    <textarea id="besked" name="besked" required></textarea>
+
+    <button type="submit">Send besked</button>
+  </form>
 </section>
 
 </main>
