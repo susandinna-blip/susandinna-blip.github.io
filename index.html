@@ -1,403 +1,175 @@
 <!DOCTYPE html>
 <html lang="da">
 <head>
-  <meta charset="UTF-8" />
-  <title>Susan Dinna – Kreativ Storyteller</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Susan Dinna – kreativ storyteller og freelance tekstforfatter. Jeg hjælper mennesker og virksomheder med tekster, der mærkes og huskes." />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Susan Dinna – Kreativ Storyteller</title>
 
-  <style>
-    :root {
-      --bg: #ffeef4;
-      --bg-soft: #ffe4f0;
-      --accent: #c6416b;      /* mørkere pink */
-      --accent-soft: #f38aa7;
-      --text: #4b2532;
-      --muted: #9a5c72;
-      --card: #fff2f7;
-      --shadow: 0 18px 45px rgba(148, 54, 86, 0.28); /* dybere skygge */
-      --radius-lg: 24px;
-      --radius-pill: 999px;
-    }
+<style>
+:root {
+  --bg: #fff1f4;
+  --accent: #c7688a;
+  --soft: #f7c3d6;
+  --text: #40202a;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body{
+  margin:0;
+  padding:0;
+  font-family: system-ui, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ffe0ec 0, #ffeef4 45%, #ffeef4 100%);
-      color: var(--text);
-      padding: 24px;
-      line-height: 1.7;
-    }
+.page{
+  max-width:720px;
+  margin:auto;
+  padding:28px;
+  text-align:center;
+}
 
-    .page {
-      max-width: 760px;
-      margin: 0 auto 64px;
-    }
+/* ===== Hero ===== */
+.hero img{
+  width:180px;
+  height:180px;
+  object-fit:cover;
+  border-radius:50%;
+  margin:20px auto;
+  border:6px solid #fff;
+  box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
 
-    .hero-card {
-      background: var(--card);
-      border-radius: 36px;
-      padding: 40px 24px 32px;
-      text-align: center;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
+h1{
+  margin:10px 0 5px;
+  letter-spacing:2px;
+}
 
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top, #ffe0ec 0, transparent 55%);
-      opacity: 0.85;
-      z-index: -1;
-    }
+.subtitle{
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:14px;
+  opacity:.7;
+}
 
-    .avatar {
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      margin: 0 auto 24px;
-      overflow: hidden;
-      box-shadow: 0 18px 35px rgba(148, 54, 86, 0.35);
-      border: 6px solid #ffe0ec;
-      background: #f6c2d4;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.quote{
+  font-style:italic;
+  color:var(--accent);
+  font-size:20px;
+  margin:30px auto;
+}
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+/* ===== Buttons ===== */
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    .hero-name {
-      font-size: 1.9rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      color: #3b1c29;
-    }
+.button{
+  padding:14px 26px;
+  border-radius:999px;
+  color:#fff;
+  background:var(--accent);
+  text-decoration:none;
+  transition:.2s;
+}
 
-    .hero-subtitle {
-      font-size: 0.9rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 26px;
-    }
+.button.secondary{
+  background:var(--soft);
+  color:var(--text);
+}
 
-    .hero-quote {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: #b54265;
-      margin: 0 auto 24px;
-      max-width: 34ch;
-    }
+.button:hover{
+  transform: translateY(-2px);
+}
 
-    .hero-quote span {
-      display: block;
-    }
+/* ===== Sections ===== */
+section{
+  display:none;
+  margin-top:50px;
+  text-align:left;
+}
 
-    /* Citat-slider under hovedcitatet */
-    .quote-slider-wrapper {
-      margin: 0 auto 28px;
-      max-width: 36ch;
-    }
+section:target{
+  display:block;
+}
 
-    .quote-slider-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
+.back{
+  display:inline-block;
+  margin-top:10px;
+  color:var(--accent);
+}
 
-    .quote-slider {
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 20px;
-      padding: 10px 14px;
-      box-shadow: 0 10px 30px rgba(148, 54, 86, 0.22);
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* Show hero normally */
+#home{ display:block; }
 
-    .quote-slide {
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 400ms ease, transform 400ms ease;
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    .quote-slide.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      justify-content: center;
-      margin-top: 6px;
-    }
-
-    .btn {
-      border-radius: var(--radius-pill);
-      padding: 12px 26px;
-      font-size: 0.95rem;
-      border: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease, color 150ms ease;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #c6416b, #b22c5a);
-      color: #fff;
-      box-shadow: 0 18px 35px rgba(148, 54, 86, 0.4);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 22px 45px rgba(148, 54, 86, 0.5);
-    }
-
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.85);
-      color: #b22c5a;
-      border: 1px solid rgba(178, 44, 90, 0.18);
-      box-shadow: 0 10px 30px rgba(148, 54, 86, 0.18);
-    }
-
-    .btn-secondary:hover {
-      background: #ffe4f0;
-      transform: translateY(-1px);
-    }
-
-    .btn-icon {
-      font-size: 1.1rem;
-    }
-
-    section {
-      margin-top: 36px;
-    }
-
-    .section-card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      padding: 28px 22px 26px;
-      box-shadow: var(--shadow);
-      margin-bottom: 24px;
-    }
-
-    .section-eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-      margin-bottom: 18px;
-      color: #3b1c29;
-    }
-
-    p + p {
-      margin-top: 10px;
-    }
-
-    ul {
-      margin: 10px 0 0 1.1em;
-    }
-
-    li + li {
-      margin-top: 4px;
-    }
-
-    .contact-info {
-      margin-top: 14px;
-      font-weight: 500;
-      color: #b22c5a;
-    }
-
-    .contact-info a {
-      color: #b22c5a;
-      text-decoration: none;
-    }
-
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin: 24px 0 8px;
-    }
-
-    @media (min-width: 720px) {
-      body {
-        padding: 40px 32px 48px;
-      }
-      .hero-card {
-        padding: 46px 40px 36px;
-      }
-      .section-card {
-        padding: 32px 30px 28px;
-      }
-      h2 {
-        font-size: 1.7rem;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <main class="page">
-    <header class="hero-card">
-      <div class="avatar">
-        <!-- Sørg for at filen i repoet hedder præcis "portraet.jpg" -->
-        <img src="portraet.jpg" alt="Portrætbillede af Susan Dinna" />
-      </div>
+<div class="page">
 
-      <h1 class="hero-name">Susan Dinna</h1>
-      <p class="hero-subtitle">
-        Kreativ storyteller &amp;<br />
-        freelance tekstforfatter
-      </p>
+<section id="home" class="hero">
 
-      <p class="hero-quote">
-        <span>“Jeg tror på, at de historier vi tør dele –</span>
-        <span>er de historier, der forbinder os.”</span>
-      </p>
+<img src="portraet.jpg" alt="Susan Dinna">
 
-      <!-- Lille citat-slider under hovedcitatet -->
-      <div class="quote-slider-wrapper">
-        <div class="quote-slider-label">Lidt mere mellem linjerne</div>
-        <div class="quote-slider">
-          <div class="quote-slide active">
-            Nogle historier fødes i modvind. Det er dem, der lærer os,
-            hvem vi er – og giver os mod til at være det højt.
-          </div>
-          <div class="quote-slide">
-            Erfaringerne fra de skæve og hårde kapitler i livet er
-            ofte dem, der gør vores fortællinger mest værdifulde.
-          </div>
-          <div class="quote-slide">
-            Når vi tør dele det uperfekte, bliver ordene et sted,
-            hvor andre kan spejle sig og finde ro.
-          </div>
-        </div>
-      </div>
+<h1>SUSAN DINNA</h1>
+<div class="subtitle">
+KREATIV STORYTELLER &<br>FREELANCE TEKSTFORFATTER
+</div>
 
-      <div class="hero-actions">
-        <a href="#om-mig" class="btn btn-primary">
-          <span class="btn-icon">→</span>
-          <span>Om mig</span>
-        </a>
-        <a href="#jeg-tilbyder" class="btn btn-secondary">
-          <span class="btn-icon">✒️</span>
-          <span>Jeg tilbyder</span>
-        </a>
-      </div>
-    </header>
+<div class="quote">
+“Jeg tror på, at de historier vi tør dele  
+– er de historier, der forbinder os.”
+</div>
 
-    <section id="om-mig">
-      <article class="section-card">
-        <p class="section-eyebrow">Om mig</p>
-        <h2>Historier fra det virkelige liv</h2>
+<div class="buttons">
+<a class="button" href="#ommig">→ Om mig</a>
+<a class="button secondary" href="#tilbyder">✎ Jeg tilbyder</a>
+</div>
 
-        <p>
-          Min vej ind i storytelling er formet af mange møder med mennesker
-          og livssituationer, hvor det har været nødvendigt at lytte bag
-          ordene og forstå det, der ikke altid bliver sagt højt.
-        </p>
+</section>
 
-        <p>
-          Jeg har lært at navigere i komplekse menneskelige fortællinger
-          med ro, overblik og empati – og at formidle dem klart,
-          respektfuldt og med blik for det væsentlige.
-        </p>
+<!-- OM MIG -->
+<section id="ommig">
+<h2>Om mig</h2>
+<p>
+Jeg arbejder med ord, fortællinger og formidling, der tager
+udgangspunkt i de ærlige og levede historier.
+Min erfaring er formet gennem de skæve og til tider hårde
+udfordringer i livet – og netop dér, midt i det virkelige,
+opfandt jeg min måde at fortælle på.
+</p>
 
-        <p>
-          Alt det har skærpet mit øje for nuancer og min evne til at
-          omsætte livserfaring til tekster, der rammer ærligt og præcist.
-        </p>
-      </article>
-    </section>
+<p>
+I dag hjælper jeg andre med at finde deres stemme og skabe
+tekster, der føles ægte, varme og menneskelige.
+</p>
 
-    <section id="jeg-tilbyder">
-      <article class="section-card">
-        <p class="section-eyebrow">Jeg tilbyder</p>
-        <h2>Storytelling til mennesker og virksomheder</h2>
+<a class="back" href="#home">← Tilbage</a>
+</section>
 
-        <ul>
-          <li>Hjemmesidetekster og nyhedsbreve</li>
-          <li>Storytelling til sociale medier</li>
-          <li>Portrætter og præsentationstekster</li>
-          <li>Personlige og nænsomme fortællinger</li>
-        </ul>
+<!-- JEG TILBYDER -->
+<section id="tilbyder">
+<h2>Jeg tilbyder</h2>
 
-        <p style="margin-top: 14px;">
-          Sammen finder vi den tone, der føles ægte – både for dig og dem,
-          du gerne vil nå.
-        </p>
-      </article>
+<ul>
+  <li>Storytelling til branding & personlige projekter</li>
+  <li>Biografisk skrivning og livsfortællinger</li>
+  <li>Tekster til hjemmesider & SoMe</li>
+  <li>Sparring på fortælling og stemme</li>
+</ul>
 
-      <article class="section-card">
-        <p class="section-eyebrow">Kontakt</p>
-        <h2>Lad os tale om din historie</h2>
-        <p>
-          Skriv eller ring, hvis du har en idé, et udkast – eller bare en
-          fornemmelse af, at noget skal fortælles på en ny måde.
-        </p>
+<p>
+Alt arbejde tager udgangspunkt i din virkelighed – ikke i
+skabeloner.
+</p>
 
-        <p class="contact-info">
-          <a href="mailto:susandinna@hotmail.com">susandinna@hotmail.com</a><br />
-          28&nbsp;18&nbsp;84&nbsp;30
-        </p>
-      </article>
-    </section>
-  </main>
+<a class="back" href="#home">← Tilbage</a>
+</section>
 
-  <footer>
-    © <span id="year"></span> Susan Dinna · susandinna.dk
-  </footer>
-
-  <script>
-    // årstal i footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // enkelt citat-slider
-    const slides = document.querySelectorAll(".quote-slide");
-    let current = 0;
-
-    if (slides.length > 1) {
-      setInterval(() => {
-        slides[current].classList.remove("active");
-        current = (current + 1) % slides.length;
-        slides[current].classList.add("active");
-      }, 6000);
-    }
-  </script>
+</div>
 </body>
 </html>
