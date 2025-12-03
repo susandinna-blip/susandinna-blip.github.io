@@ -4,21 +4,18 @@
   <meta charset="UTF-8" />
   <title>Susan Dinna – Kreativ Storyteller</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta
-    name="description"
-    content="Susan Dinna – kreativ storyteller og freelance tekstforfatter. Storytelling til mennesker og virksomheder."
-  />
+  <meta name="description" content="Susan Dinna – kreativ storyteller og freelance tekstforfatter. Jeg hjælper mennesker og virksomheder med tekster, der mærkes og huskes." />
 
   <style>
     :root {
-      --bg: #ffe9f0;
-      --bg-soft: #ffe0ec;
-      --card: #ffffff;
-      --text: #3e222b;
-      --muted: #9a5a70;
-      --accent: #e35585;
-      --accent-soft: #f8b2c9;
-      --shadow-soft: 0 18px 45px rgba(156, 51, 89, 0.2);
+      --bg: #ffeef4;
+      --bg-soft: #ffe4f0;
+      --accent: #c6416b;      /* mørkere pink */
+      --accent-soft: #f38aa7;
+      --text: #4b2532;
+      --muted: #9a5c72;
+      --card: #fff2f7;
+      --shadow: 0 18px 45px rgba(148, 54, 86, 0.28); /* dybere skygge */
       --radius-lg: 24px;
       --radius-pill: 999px;
     }
@@ -30,60 +27,70 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: radial-gradient(circle at top, #ffd6e5 0, #ffeef4 45%, #ffe9f0 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #ffe0ec 0, #ffeef4 45%, #ffeef4 100%);
       color: var(--text);
-      margin: 0;
       padding: 24px;
       line-height: 1.7;
     }
 
     .page {
-      max-width: 800px;
-      margin: 0 auto 48px;
+      max-width: 760px;
+      margin: 0 auto 64px;
     }
 
-    /* HERO / TOP */
-    .hero {
+    .hero-card {
+      background: var(--card);
+      border-radius: 36px;
+      padding: 40px 24px 32px;
       text-align: center;
-      margin-bottom: 40px;
+      box-shadow: var(--shadow);
       position: relative;
+      overflow: hidden;
     }
 
-    .hero-photo-wrap {
-      width: 220px;
-      height: 220px;
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, #ffe0ec 0, transparent 55%);
+      opacity: 0.85;
+      z-index: -1;
+    }
+
+    .avatar {
+      width: 210px;
+      height: 210px;
       border-radius: 50%;
       margin: 0 auto 24px;
-      padding: 10px;
-      background: radial-gradient(circle at 30% 0, #ffffff 0, #ffe0ec 60%, #ffc0d9 100%);
-      box-shadow: 0 18px 55px rgba(156, 51, 89, 0.35);
+      overflow: hidden;
+      box-shadow: 0 18px 35px rgba(148, 54, 86, 0.35);
+      border: 6px solid #ffe0ec;
+      background: #f6c2d4;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .hero-photo {
+    .avatar img {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
       object-fit: cover;
-      border: 4px solid #fff;
+      display: block;
     }
 
     .hero-name {
-      font-size: 2.1rem;
-      letter-spacing: 0.18em;
+      font-size: 1.9rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      font-weight: 800;
       margin-bottom: 10px;
+      color: #3b1c29;
     }
 
     .hero-subtitle {
+      font-size: 0.9rem;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      font-size: 0.78rem;
-      letter-spacing: 0.16em;
       color: var(--muted);
       margin-bottom: 26px;
     }
@@ -91,253 +98,306 @@
     .hero-quote {
       font-size: 1.2rem;
       font-weight: 500;
-      color: var(--accent);
-      max-width: 32rem;
-      margin: 0 auto 32px;
+      color: #b54265;
+      margin: 0 auto 24px;
+      max-width: 34ch;
     }
 
     .hero-quote span {
       display: block;
     }
 
+    /* Citat-slider under hovedcitatet */
+    .quote-slider-wrapper {
+      margin: 0 auto 28px;
+      max-width: 36ch;
+    }
+
+    .quote-slider-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .quote-slider {
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 10px 14px;
+      box-shadow: 0 10px 30px rgba(148, 54, 86, 0.22);
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quote-slide {
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 400ms ease, transform 400ms ease;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .quote-slide.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 16px;
       justify-content: center;
-      margin-bottom: 8px;
+      margin-top: 6px;
     }
 
-    .button {
+    .btn {
+      border-radius: var(--radius-pill);
+      padding: 12px 26px;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 12px 26px;
-      border-radius: var(--radius-pill);
-      border: none;
-      font-size: 0.98rem;
-      font-weight: 600;
-      cursor: pointer;
+      gap: 8px;
       text-decoration: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease,
-        background-color 0.15s ease, color 0.15s ease;
-      box-shadow: 0 14px 30px rgba(142, 38, 77, 0.22);
+      transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease, color 150ms ease;
       white-space: nowrap;
     }
 
-    .button-primary {
-      background: linear-gradient(135deg, #e35585, #c93266);
+    .btn-primary {
+      background: linear-gradient(135deg, #c6416b, #b22c5a);
       color: #fff;
+      box-shadow: 0 18px 35px rgba(148, 54, 86, 0.4);
     }
 
-    .button-primary:hover {
+    .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(142, 38, 77, 0.35);
+      box-shadow: 0 22px 45px rgba(148, 54, 86, 0.5);
     }
 
-    .button-soft {
-      background: #ffe0ec;
-      color: var(--muted);
-      box-shadow: 0 10px 25px rgba(156, 51, 89, 0.16);
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.85);
+      color: #b22c5a;
+      border: 1px solid rgba(178, 44, 90, 0.18);
+      box-shadow: 0 10px 30px rgba(148, 54, 86, 0.18);
     }
 
-    .button-soft:hover {
-      background: #ffd0e2;
+    .btn-secondary:hover {
+      background: #ffe4f0;
       transform: translateY(-1px);
     }
 
-    .button-icon {
-      margin-right: 8px;
+    .btn-icon {
+      font-size: 1.1rem;
     }
 
-    /* SEKTIONER */
-    .section {
-      margin-bottom: 28px;
+    section {
+      margin-top: 36px;
     }
 
-    .card {
+    .section-card {
       background: var(--card);
       border-radius: var(--radius-lg);
-      padding: 22px 18px;
-      box-shadow: var(--shadow-soft);
+      padding: 28px 22px 26px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
     }
 
-    .section-label {
+    .section-eyebrow {
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.82rem;
+      letter-spacing: 0.22em;
+      font-size: 0.78rem;
       color: var(--muted);
-      font-weight: 700;
       margin-bottom: 10px;
     }
 
-    .section-title {
-      font-size: 1.45rem;
-      margin-bottom: 14px;
-      line-height: 1.4;
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      color: #3b1c29;
     }
 
-    .section p + p {
+    p + p {
       margin-top: 10px;
     }
 
-    .list {
-      list-style: none;
-      margin: 10px 0 0;
-      padding-left: 0;
+    ul {
+      margin: 10px 0 0 1.1em;
     }
 
-    .list li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 6px;
+    li + li {
+      margin-top: 4px;
     }
 
-    .list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: var(--accent);
+    .contact-info {
+      margin-top: 14px;
+      font-weight: 500;
+      color: #b22c5a;
     }
 
-    /* KONTAKT */
-    .contact-details {
-      margin-top: 8px;
-    }
-
-    .contact-item {
-      margin-bottom: 6px;
-    }
-
-    .contact-label {
-      font-weight: 600;
-    }
-
-    .contact-link {
-      color: var(--accent);
+    .contact-info a {
+      color: #b22c5a;
       text-decoration: none;
     }
 
-    .contact-link:hover {
+    .contact-info a:hover {
       text-decoration: underline;
     }
 
-    /* RESPONSIV */
+    footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 24px 0 8px;
+    }
+
     @media (min-width: 720px) {
       body {
-        padding: 40px 32px 64px;
+        padding: 40px 32px 48px;
       }
-
-      .card {
-        padding: 26px 28px;
+      .hero-card {
+        padding: 46px 40px 36px;
       }
-
-      .hero-quote {
-        font-size: 1.3rem;
+      .section-card {
+        padding: 32px 30px 28px;
+      }
+      h2 {
+        font-size: 1.7rem;
       }
     }
   </style>
 </head>
+
 <body>
-  <div class="page">
-    <!-- HERO -->
-    <header class="hero">
-      <div class="hero-photo-wrap">
-        <!-- VIGTIGT: filnavn skal matche præcis -->
-        <img src="IMG_7284.jpeg" alt="Susan Dinna" class="hero-photo" />
+  <main class="page">
+    <header class="hero-card">
+      <div class="avatar">
+        <!-- Sørg for at filen i repoet hedder præcis "portraet.jpg" -->
+        <img src="portraet.jpg" alt="Portrætbillede af Susan Dinna" />
       </div>
 
-      <h1 class="hero-name">SUSAN DINNA</h1>
-
-      <div class="hero-subtitle">
-        KREATIV STORYTELLER &amp; FREELANCE TEKSTFORFATTER
-      </div>
-
-      <p class="hero-quote">
-        <span>“Jeg tror på, at de historier vi tør dele</span>
-        <span>– er de historier, der forbinder os.”</span>
+      <h1 class="hero-name">Susan Dinna</h1>
+      <p class="hero-subtitle">
+        Kreativ storyteller &amp;<br />
+        freelance tekstforfatter
       </p>
 
+      <p class="hero-quote">
+        <span>“Jeg tror på, at de historier vi tør dele –</span>
+        <span>er de historier, der forbinder os.”</span>
+      </p>
+
+      <!-- Lille citat-slider under hovedcitatet -->
+      <div class="quote-slider-wrapper">
+        <div class="quote-slider-label">Lidt mere mellem linjerne</div>
+        <div class="quote-slider">
+          <div class="quote-slide active">
+            Nogle historier fødes i modvind. Det er dem, der lærer os,
+            hvem vi er – og giver os mod til at være det højt.
+          </div>
+          <div class="quote-slide">
+            Erfaringerne fra de skæve og hårde kapitler i livet er
+            ofte dem, der gør vores fortællinger mest værdifulde.
+          </div>
+          <div class="quote-slide">
+            Når vi tør dele det uperfekte, bliver ordene et sted,
+            hvor andre kan spejle sig og finde ro.
+          </div>
+        </div>
+      </div>
+
       <div class="hero-actions">
-        <a href="#om-mig" class="button button-primary">
-          <span class="button-icon">↠</span> Om mig
+        <a href="#om-mig" class="btn btn-primary">
+          <span class="btn-icon">→</span>
+          <span>Om mig</span>
         </a>
-        <a href="#jeg-tilbyder" class="button button-soft">
-          <span class="button-icon">📎</span> Jeg tilbyder
-        </a>
-        <a href="galleri.html" class="button button-soft">
-          <span class="button-icon">🖼️</span> Galleri
+        <a href="#jeg-tilbyder" class="btn btn-secondary">
+          <span class="btn-icon">✒️</span>
+          <span>Jeg tilbyder</span>
         </a>
       </div>
     </header>
 
-    <!-- OM MIG -->
-    <section id="om-mig" class="section">
-      <div class="card">
-        <div class="section-label">Om mig</div>
-        <h2 class="section-title">Historier fra det virkelige liv</h2>
+    <section id="om-mig">
+      <article class="section-card">
+        <p class="section-eyebrow">Om mig</p>
+        <h2>Historier fra det virkelige liv</h2>
+
         <p>
-          Min vej ind i storytelling er formet af mange møder med mennesker og
-          livssituationer, hvor det har været nødvendigt at lytte bag ordene og
-          forstå det, der ikke altid bliver sagt højt.
+          Min vej ind i storytelling er formet af mange møder med mennesker
+          og livssituationer, hvor det har været nødvendigt at lytte bag
+          ordene og forstå det, der ikke altid bliver sagt højt.
         </p>
+
         <p>
-          Jeg har lært at navigere i komplekse menneskelige fortællinger med ro,
-          overblik og empati – og at formidle dem klart, respektfuldt og med
-          blik for det væsentlige.
+          Jeg har lært at navigere i komplekse menneskelige fortællinger
+          med ro, overblik og empati – og at formidle dem klart,
+          respektfuldt og med blik for det væsentlige.
         </p>
+
         <p>
-          Alt det har skærpet mit øje for nuancer og min evne til at omsætte
-          livserfaring til tekster, der rammer ærligt og præcist.
+          Alt det har skærpet mit øje for nuancer og min evne til at
+          omsætte livserfaring til tekster, der rammer ærligt og præcist.
         </p>
-      </div>
+      </article>
     </section>
 
-    <!-- JEG TILBYDER -->
-    <section id="jeg-tilbyder" class="section">
-      <div class="card">
-        <div class="section-label">Jeg tilbyder</div>
-        <h2 class="section-title">Storytelling til mennesker og virksomheder</h2>
-        <ul class="list">
+    <section id="jeg-tilbyder">
+      <article class="section-card">
+        <p class="section-eyebrow">Jeg tilbyder</p>
+        <h2>Storytelling til mennesker og virksomheder</h2>
+
+        <ul>
           <li>Hjemmesidetekster og nyhedsbreve</li>
           <li>Storytelling til sociale medier</li>
           <li>Portrætter og præsentationstekster</li>
           <li>Personlige og nænsomme fortællinger</li>
         </ul>
+
         <p style="margin-top: 14px;">
-          Sammen finder vi den tone, der føles ægte – og den fortælling, der
-          skaber forbindelse.
+          Sammen finder vi den tone, der føles ægte – både for dig og dem,
+          du gerne vil nå.
         </p>
-      </div>
-    </section>
+      </article>
 
-    <!-- KONTAKT -->
-    <section id="kontakt" class="section">
-      <div class="card">
-        <div class="section-label">Kontakt</div>
-        <h2 class="section-title">Lad os tale om din fortælling</h2>
+      <article class="section-card">
+        <p class="section-eyebrow">Kontakt</p>
+        <h2>Lad os tale om din historie</h2>
         <p>
-          Har du brug for hjælp til ord, der rammer rigtigt – eller vil du høre
-          mere om, hvordan vi kan samarbejde?
+          Skriv eller ring, hvis du har en idé, et udkast – eller bare en
+          fornemmelse af, at noget skal fortælles på en ny måde.
         </p>
 
-        <div class="contact-details">
-          <div class="contact-item">
-            <span class="contact-label">Mail:</span>
-            <a class="contact-link" href="mailto:susandinna@hotmail.com">
-              susandinna@hotmail.com
-            </a>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">Telefon:</span>
-            <a class="contact-link" href="tel:+4528188430">
-              28&nbsp;18&nbsp;84&nbsp;30
-            </a>
-          </div>
-        </div>
-      </div>
+        <p class="contact-info">
+          <a href="mailto:susandinna@hotmail.com">susandinna@hotmail.com</a><br />
+          28&nbsp;18&nbsp;84&nbsp;30
+        </p>
+      </article>
     </section>
-  </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Susan Dinna · susandinna.dk
+  </footer>
+
+  <script>
+    // årstal i footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // enkelt citat-slider
+    const slides = document.querySelectorAll(".quote-slide");
+    let current = 0;
+
+    if (slides.length > 1) {
+      setInterval(() => {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+      }, 6000);
+    }
+  </script>
 </body>
 </html>
